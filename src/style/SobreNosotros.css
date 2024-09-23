@@ -1,0 +1,70 @@
+/* Estilos específicos para la página Sobre Nosotros */
+.sobre-nosotros-container {
+    padding: 40px;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.5s ease-in-out;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.sobre-nosotros-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff8a00;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: flicker 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+.sobre-nosotros-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.homes-ae-highlight {
+    font-weight: bold;
+    color: #e52e71;
+    animation: textGradient 3s linear infinite;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sobre-nosotros-container {
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 15px;
+    }
+
+    .sobre-nosotros-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .sobre-nosotros-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sobre-nosotros-container {
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    .sobre-nosotros-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .sobre-nosotros-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}

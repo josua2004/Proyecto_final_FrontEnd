@@ -1,0 +1,139 @@
+/* Register.css */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #e0e0e5; /* Intermediate color */
+  color: #333;
+  overflow-x: hidden;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.control {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: boxAnimation 1.5s ease-in-out;
+}
+
+.titulo {
+  font-size: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: textGradient 3s linear infinite;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  position: relative;
+  font-size: 18px; /* Increase font size for better visibility */
+}
+
+.input-box input::placeholder {
+  color: #888;
+  font-size: 16px;
+  opacity: 1; /* Ensure placeholder is visible */
+  animation: placeholderAnimation 2s ease-in-out infinite;
+}
+
+.input-box input:focus {
+  outline: none;
+  border-color: #e52e71;
+  box-shadow: 0 0 15px rgba(229, 46, 113, 0.3);
+  color: #333;
+  animation: inputFocusAnimation 0.5s ease;
+}
+
+.input-box label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: #888;
+  transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -15px;
+  left: 10px;
+  color: #e52e71;
+  font-size: 12px;
+}
+
+.abc {
+  margin-top: 20px;
+}
+
+.abc a {
+  color: #e52e71;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.abc a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background-color: #e52e71;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ff8a00;
+  transform: scale(1.05);
+}
+
+/* Keyframes for animations */
+@keyframes textGradient {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+@keyframes placeholderAnimation {
+  0% { color: #888; }
+  50% { color: #e52e71; }
+  100% { color: #888; }
+}
+
+@keyframes inputFocusAnimation {
+  0% { color: #333; }
+  50% { color: #e52e71; }
+  100% { color: #333; }
+}
+
+@keyframes boxAnimation {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}

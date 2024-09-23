@@ -1,0 +1,149 @@
+/* Container Styles */
+.container2 {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container2:hover {
+    transform: scale(1.02);
+}
+
+/* Title */
+.container2 h2 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.container2 h2:hover {
+    color: #007bff;
+}
+
+/* Label Styles */
+.container2 label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+/* Input Fields */
+.control22 {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.control22:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.boton22 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 10px;
+}
+
+.boton22:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.boton22:active {
+    transform: translateY(2px);
+}
+
+/* Image Preview */
+.container2 img {
+    display: block;
+    margin: 10px auto;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container2 img:hover {
+    transform: scale(1.1);
+}
+
+/* Card Styles */
+.card {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin: 5px 0;
+    color: #343a40;
+    font-size: 1.2em;
+}
+
+.card p {
+    color: #6c757d;
+    margin: 3px 0;
+}
+
+/* List Styles */
+.nav {
+    list-style: none;
+    padding: 0;
+}
+
+.lili {
+    margin: 0;
+    padding: 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container2, .card, .boton22 {
+    animation: fadeIn 0.6s ease-in-out;
+}

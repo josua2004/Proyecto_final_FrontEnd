@@ -1,0 +1,776 @@
+/* Principal.css */
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0e0e5; /* Color intermedio */
+    color: #333;
+    overflow-x: hidden;
+}
+
+.vacation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textGradient 3s linear infinite;
+}
+
+@keyframes textGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    background-color: #e52e71;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.header-btn:hover {
+    background-color: #ff8a00;
+    transform: scale(1.1);
+}
+
+/* Animación de entrada para el header */
+@keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .header {
+    animation: slideDown 1s ease-out;
+  }
+  
+  .header-buttons .header-btn {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .header-buttons .header-btn:hover {
+    transform: scale(1.1);
+    color: #ff6b6b; /* Cambia a un color agradable al hacer hover */
+  }
+  
+
+.customer-service {
+    font-size: 14px;
+    background-color: rgba(255, 100, 200, 0.8);
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(255, 100, 200, 0.5);
+}
+
+.hero {
+    position: relative;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f5f5f5, #dcdcdc);
+    border-radius: 20px;
+    text-align: center;
+    color: #333;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: flicker 1.5s infinite;
+}
+
+/* Animación de entrada para el hero */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animación para el overlay */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .hero-content {
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .overlay {
+    animation: fadeIn 2s ease-in;
+  }
+  
+  .hero h1 {
+    animation: fadeInUp 1.5s ease-out;
+  }
+  
+  .hero h3 {
+    animation: fadeInUp 2s ease-out;
+  }
+  
+  .search-bar {
+    animation: fadeInUp 2.5s ease-out;
+  }
+  
+
+.search-bar input, .search-bar button {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: #888;
+}
+
+.search-bar button {
+    background-color: #e52e71;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #ff8a00;
+    transform: scale(1.1);
+}
+
+.filters {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.filter-buttons {
+    display: inline-block;
+}
+
+.buton22 {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    padding: 12px 30px;
+    margin: 5px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 138, 0, 0.5);
+}
+
+.buton22:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 0 20px rgba(255, 138, 0, 0.8);
+}
+
+.rental-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.rental-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s;
+    position: relative;
+}
+
+.rental-card:hover {
+    transform: translateY(-10px) scale(1.05) rotate(-1deg);
+    box-shadow: 0 25px 35px rgba(255, 138, 0, 0.6);
+}
+
+.rental-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.rental-card:hover .rental-img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.rental-info {
+    padding: 20px;
+}
+
+.rental-info h3 {
+    font-size: 24px;
+    color: #ff8a00;
+}
+
+.view-deal-btn {
+    display: block;
+    background-color: #ff8a00;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s ease;
+    text-decoration: underline;
+}
+
+
+.view-deal-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 138, 0, 0.8);
+}
+
+/* Floating "Cerrar Sesión" button */
+.logout-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000; /* Ensures it stays on top */
+    backdrop-filter: blur(10px); /* Adds a glass-like effect */
+    opacity: 0.9; /* Semi-transparent for better blending */
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+    box-shadow: 0 0 30px rgba(255, 138, 0, 0.9);
+    transform: scale(1.1);
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Makes sure button stays visible as you scroll */
+.logout-btn:active {
+    box-shadow: 0 0 40px rgba(255, 138, 0, 0.9);
+}
+
+
+
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Highlight Section */
+.highlight-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f5f5f5, #dcdcdc); /* Fondo con degradado */
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 1.5s ease-in-out;
+    margin-top: 40px;
+}
+
+
+
+.highlight-content {
+    max-width: 600px;
+}
+
+.highlight-title {
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textGradient 3s linear infinite;
+}
+
+.highlight-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 15px;
+}
+
+.highlight-badge img {
+    width: 150px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out;
+}
+
+.highlight-badge img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(255, 138, 0, 0.8);
+}
+
+.highlight-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .highlight-content {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .highlight-badge {
+    flex: 1; /* Ajusta el tamaño del contenedor de la imagen */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+  }
+  
+  .highlight-badge img {
+    width: 80%; /* Ajusta el ancho de la imagen al 80% del contenedor */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    object-fit: contain; /* Asegura que la imagen quepa dentro sin ser recortada */
+    max-width: 500px; /* Establece un tamaño máximo para la imagen, ajusta según tu preferencia */
+  }
+  
+
+/* Animation for text gradient */
+@keyframes textGradient {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+/* Fade in up animation for smooth appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vacation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Footer Style */
+.footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    margin-top: 40px;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #ff8a00;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #e52e71;
+    transform: scale(1.1);
+}
+
+/* Ideas Section */
+.ideas-section {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.ideas-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.idea {
+    background-color: #ff8a00;
+    padding: 15px 25px;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.idea:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 138, 0, 0.8);
+}
+
+/* Amenities Section */
+.amenities-section {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.amenities-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.amenity {
+    background-color: #e52e71;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    margin: 10px;
+    font-size: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.amenity:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(229, 46, 113, 0.8);
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 768px) {
+
+    /* General adjustments */
+    body {
+        padding: 10px;
+    }
+
+    .vacation-container {
+        padding: 10px;
+    }
+
+    /* Header adjustments */
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* Hero adjustments */
+    .hero {
+        padding: 50px 10px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    /* Search bar adjustments */
+    .search-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .search-bar input, .search-bar button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Filter buttons */
+    .buton22 {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Rental card adjustments */
+    .rental-container {
+        grid-template-columns: 1fr;
+    }
+
+    .rental-card {
+        margin: 10px;
+    }
+
+    .rental-img {
+        height: 150px;
+    }
+
+    .rental-info h3 {
+        font-size: 18px;
+    }
+
+    /* Footer adjustments */
+    .footer {
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    /* Floating button adjustments */
+    .logout-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Highlight Section */
+    .highlight-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .highlight-content {
+        padding-right: 0;
+    }
+
+    .highlight-badge img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Ideas Section */
+    .ideas-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .idea {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    /* Amenities Section */
+    .amenities-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .amenity {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    /* General adjustments */
+    body {
+        padding: 5px;
+    }
+
+    .vacation-container {
+        padding: 5px;
+    }
+
+    /* Header adjustments */
+    .logo {
+        font-size: 18px;
+    }
+
+    .header-buttons {
+        gap: 5px;
+    }
+
+    .header-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    /* Hero adjustments */
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    /* Search bar adjustments */
+    .search-bar {
+        padding: 5px;
+    }
+
+    .search-bar input, .search-bar button {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    /* Filter buttons */
+    .buton22 {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    /* Rental card adjustments */
+    .rental-card {
+        margin: 5px;
+    }
+
+    .rental-img {
+        height: 120px;
+    }
+
+    .rental-info h3 {
+        font-size: 16px;
+    }
+
+    /* Footer adjustments */
+    .footer {
+        padding: 5px;
+        margin-top: 20px;
+    }
+
+    .footer p {
+        font-size: 10px;
+    }
+
+    .social-icon {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    /* Floating button adjustments */
+    .logout-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    /* Highlight Section */
+    .highlight-section {
+        padding: 10px;
+    }
+
+    .highlight-title {
+        font-size: 28px;
+    }
+
+    .highlight-badge img {
+        max-width: 200px;
+    }
+
+    /* Ideas Section */
+    .idea {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    /* Amenities Section */
+    .amenity {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+
+
+
