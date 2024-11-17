@@ -42,6 +42,31 @@ body {
     100% { background-position: 200%; }
 }
 
+/* Animation for page load */
+@keyframes pageFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(50px);
+        filter: blur(5px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1) translateY(0);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Apply the animation to the entire body */
+body {
+    animation: pageFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
 .header-buttons {
     display: flex;
     gap: 10px;
@@ -119,6 +144,52 @@ body {
     color: transparent;
     animation: flicker 1.5s infinite;
 }
+
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    text-align: center;
+}
+
+.reservation-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.reservation-form label {
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.reserve-button {
+    padding: 0.7rem 1.2rem;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-button:hover {
+    background-color: #ff0000;
+}
+
 
 /* Animación de entrada para el hero */
 @keyframes fadeInUp {
@@ -770,6 +841,73 @@ body {
         font-size: 12px;
     }
 }
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 768px) {
+
+    /* General adjustments */
+    body {
+        padding: 10px;
+    }
+
+    .vacation-container {
+        padding: 10px;
+    }
+
+    /* Header adjustments */
+    .header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+    }
+
+    /* Hero section adjustments */
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-content, .highlight-content {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .highlight-badge img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Footer adjustments */
+    .footer p {
+        font-size: 12px;
+    }
+
+    /* Rental Cards adjustments */
+    .rental-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Search bar adjustments */
+    .search-bar input, .search-bar button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* Social links adjustments */
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 
 
 

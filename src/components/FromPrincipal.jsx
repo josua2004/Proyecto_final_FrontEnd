@@ -5,6 +5,7 @@ import '../style/Principal.css'; // Importa los estilos CSS para el componente
 import { getAdmin } from '../services/GetAdmin'; // Importa la función para obtener datos del servicio de administración
 import rurales from '../img/casas-rurales.jpg'; // Importa una imagen de casas rurales
 
+
 const FromPrincipal = () => { // Declara el componente funcional FromPrincipal
     const [rentals, setRentals] = useState([]); // Define un estado para almacenar las casas en alquiler
     const navigate = useNavigate(); // Inicializa el hook para navegar entre rutas
@@ -44,14 +45,17 @@ const FromPrincipal = () => { // Declara el componente funcional FromPrincipal
             <button className="logout-btn" onClick={handleLogout}>Cerrar sesión</button> 
 
             {/* Hero Section */}
-            <section className="hero"> 
-                <div className="overlay"></div> 
-                <div className="hero-content"> 
-                    <h1>Nosara Alquiler</h1> 
-                    <h3>Encuentra 15 ofertas disponibles de 3 socios</h3> 
-                    <div className="search-bar"></div>
-                </div>
-            </section>
+          <section className="hero"> 
+           <div className="overlay"></div> 
+            <div className="hero-content"> 
+            <h1>Nosara Alquiler</h1> 
+            <h3>Encuentra 15 ofertas disponibles de 3 socios</h3> 
+
+            {/* Reserva Formulario */}
+
+        </div>
+          </section>
+
 
             {/* Filters Section */}
             <section className="filters"> 
@@ -81,7 +85,7 @@ const FromPrincipal = () => { // Declara el componente funcional FromPrincipal
                    <p>{casa.rating} ★</p> {/* Calificación de la casa */}
                    <p>{casa.reviews} Reseñas</p> {/* Número de reseñas */}
                  
-                   <Link to="/Contactenos" className="toHover"><button className="view-deal-btn">Disponible / Ocupada</button></Link> 
+                   <Link to="/InformacionCasa" className="toHover"><button className="view-deal-btn">Mas informacion..</button></Link> 
                </div>
                 ))} 
             </section>
@@ -91,7 +95,7 @@ const FromPrincipal = () => { // Declara el componente funcional FromPrincipal
                 <div className="highlight-content"> 
                     <h1 className="highlight-title">2024 el mejor servicio de nosara</h1> 
                     <p className="highlight-text">
-                        HomeToGo recibió el Cuarto lugar en la categoría de alquileres economicos y serviciales en nosara. 
+                        Homes-A/E recibió el Cuarto lugar en la categoría de alquileres economicos y serviciales en nosara. 
                     </p>
                 </div>
                 <div className="highlight-badge">

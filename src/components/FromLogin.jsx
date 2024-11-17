@@ -1,156 +1,95 @@
-import React, { useState } from 'react';
-import Swal from 'sweetalert2/dist/sweetalert2.all.min.js'; // Import SweetAlert
-import { postUsers } from '../services/PostUsers';
-import { useNavigate } from 'react-router-dom';
-import '../style/Login.css'; // Updated styles
+import React, { useState } from 'react'; // Importa React y el hook useState para manejar el estado del componente.
+import Swal from 'sweetalert2/dist/sweetalert2.all.min.js'; // Importa la biblioteca SweetAlert para mostrar alertas.
+import PostUser from '../services/PostUsers' // Importa la función postUsers que se usará para enviar los datos de usuario.
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate de React Router para redireccionar a otras páginas.
+import '../style/Login.css'; // Importa los estilos CSS para el componente de inicio de sesión.
 
-// Function for the login form
+// Función para el formulario de inicio de sesión
 function FormLogin() {
 
+  // Define el estado para el nombre de usuario y la contraseña
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = useNavigate(); // Initialize useNavigate
 
-  // Function to handle username input change
+  const navigate = useNavigate(); // Inicializa useNavigate para redireccionar a otras rutas
+
+  // Función para manejar el cambio en el input del nombre de usuario
   function cargaUsuario(event) {
-    setUsername(event.target.value);
+    setUsername(event.target.value); // Actualiza el estado del nombre de usuario con el valor del input
   }
 
-  // Function to handle password input change
+  // Función para manejar el cambio en el input de la contraseña
   const cargaContra = (event) => {
-    setPassword(event.target.value);
+    setPassword(event.target.value); // Actualiza el estado de la contraseña con el valor del input
   };
 
-  // Function to handle login logic, including validation
-  const cargar = () => {
-    // Validate if fields are empty
-  if (!username || !password) {
-    Swal.fire({
-      title: 'Error',
-      text: 'Todos los campos son requeridos.',
-      icon: 'error',
-      confirmButtonText: 'Ok'
-    });
-    return;
-  }
-
-  if (username.trim()=== "") {
-    Swal.fire({
-      title: 'Error',
-      text: 'Este Nombre no es valido.',
-      icon: 'error',
-    });
-  }if (password.trim()==="") {
-    Swal.fire({
-      title: 'Error',
-      text: 'Esta contraseña no es valida',
-      icon: 'error',
-    });
-  }
-
-  
-
-  // Perform login action and show SweetAlert on success or error
-  postUsers(username, password)
-    .then(() => {
+  // Función que maneja la lógica del inicio de sesión, incluyendo la validación
+  const cargar = async () => {
+    // Valida si los campos están vacíos
+    if (!username || !password) {
       Swal.fire({
-        title: 'Logueaste exitosamente!',
-        text: '¿Quieres continuar?',
-        icon: 'success',
+        title: 'Error',
+        text: 'Todos los campos son requeridos.', // Muestra una alerta si algún campo está vacío
+        icon: 'error',
         confirmButtonText: 'Ok'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate('/principal');
-          localStorage.setItem("Autenticado", "true");
-        }
       });
-    })
-    .catch((error) => {
-      // Debug: Check what the error contains
-      console.error('Error response:', error);
+      return; // Detiene la ejecución si hay campos vacíos
+    }
 
-      // Handle errors, e.g. if the user is already registered or data is incorrect
-      if (error.response) {
-        switch (error.response.status) {
-          case 400:
-            Swal.fire({
-              title: 'Datos incorrectos',
-              text: 'Por favor, verifica tu usuario o contraseña.',
-              icon: 'error',
-              confirmButtonText: 'Ok'
-            });
-            break;
-          case 409:
-            Swal.fire({
-              title: 'Usuario ya registrado',
-              text: 'El usuario que intentas usar ya está registrado.',
-              icon: 'warning',
-              confirmButtonText: 'Ok'
-            });
-            break;
-          default:
-            Swal.fire({
-              title: 'Error',
-              text: 'Algo salió mal, intenta de nuevo más tarde.',
-              icon: 'error',
-              confirmButtonText: 'Ok'
-            });
-        }
-      } else {
-        Swal.fire({
-          title: 'Error',
-          text: 'Algo salió mal, intenta de nuevo más tarde.',
-          icon: 'error',
-          confirmButtonText: 'Ok'
-        });
-      }
-    });
+    // Realiza la acción de inicio de sesión y muestra un SweetAlert en caso de éxito o error
+    const res = await PostUser.PostUser(username,password)  // Llama a la función postUsers con el nombre de usuario y contraseña
 
-  // Log the data for testing purposes
-  console.log('Nombre:', username);
-  console.log('Contraseña:', password);
+    alert("Login éxitoso",res);
+
+    if (res.access) {
+      navigate('/');
+    }
+
+    // Muestra los datos en la consola para pruebas
+    console.log('Nombre:', username); // Imprime el nombre de usuario en la consola
+    console.log('Contraseña:', password); // Imprime la contraseña en la consola
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2 className="login-title">Login</h2>
-        <div className="input-box">
+    <div className="login-container"> {/* Contenedor principal del formulario de inicio de sesión */}
+      <div className="login-box"> {/* Caja que contiene el formulario */}
+        <h2 className="login-title">Login</h2> {/* Título del formulario de inicio de sesión */}
+        <div className="input-box"> {/* Contenedor para el input del nombre de usuario */}
           <input
             className="login-input"
             type="text"
             id="username"
             name="username"
-            placeholder=""
+            placeholder="" 
             value={username}
-            onChange={cargaUsuario}
+            onChange={cargaUsuario} 
             required
           />
-          <label htmlFor="username">Username</label>
-          <span className="icono"><ion-icon name="mail"></ion-icon></span>
+          <label htmlFor="username">Username</label> {/* Etiqueta para el input de nombre de usuario */}
+          <span className="icono"><ion-icon name="mail"></ion-icon></span> {/* Ícono de usuario */}
         </div>
 
-        <div className="input-box">
+        <div className="input-box"> {/* Contenedor para el input de la contraseña */}
           <input
             type="password"
             id="password"
             name="password"
-            placeholder=""
+            placeholder="" 
             value={password}
-            onChange={cargaContra}
+            onChange={cargaContra} 
             required
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password</label> {/* Etiqueta para el input de la contraseña */}
         </div>
 
         <p className="login-options">
-          <label><input type="checkbox" /> Acepto las condiciones</label>
-          <a href="/Register">¿No tienes cuenta? Registrate</a>
+          <label><input type="checkbox" /> Acepto las condiciones</label> {/* Checkbox para aceptar condiciones */}
+          <a href="/Register">¿No tienes cuenta? Registrate</a> {/* Enlace a la página de registro */}
         </p>
-        <button className="login-button" onClick={cargar}>Login</button>
+        <button className="login-button" onClick={cargar}>Login</button> {/* Botón para iniciar sesión que ejecuta la función cargar */}
 
-        {/* Ionicons script */}
+        {/* Script de Ionicons para cargar los iconos */}
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </div>
@@ -158,5 +97,5 @@ function FormLogin() {
   );
 }
 
-// Export the login form function
+// Exporta la función del formulario de inicio de sesión
 export default FormLogin;

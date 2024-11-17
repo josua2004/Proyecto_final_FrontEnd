@@ -10,6 +10,8 @@ import Mapa from '../pages/Mapa';
 import AdministracionLog from '../pages/AdministracionLog';
 import Administracion from '../pages/Administracion'
 import ProtectedRoute from './ProtectedRoute';
+import Mantenimiento from '../pages/Mantenimiento';
+import InformacionCasa from '../pages/InformacionCasa';
 
 
 const Routing = () => {
@@ -26,6 +28,8 @@ const Routing = () => {
        <Route path="/Mapa" element={<Mapa />} />
        <Route path="/AdministracionLog" element={<AdministracionLog />} />
        <Route path="/Administracion" element={<ProtectedRoute><Administracion /></ProtectedRoute>}/>
+       <Route path="/Mantenimiento" element={<Mantenimiento />} />
+       <Route path="/InformacionCasa" element={<InformacionCasa />} />
 
      </Routes>
     </Router>

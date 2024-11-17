@@ -93,7 +93,7 @@ function FormAdministracion() {
             
             postAdmin(img, formValues.title, formValues.price).then(() => {
                 setFormValues({
-                    title: '',
+                    title: '',                                     
                     location: '',
                     price: '',
                     date: '',
